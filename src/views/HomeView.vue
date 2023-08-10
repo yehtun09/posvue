@@ -30,7 +30,7 @@ import axios from "axios";
 import { onMounted, ref, watch, watchEffect } from "vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
-import _ from "lodash";
+import _ from "lodash"; 
 import { useWebNotification } from "@vueuse/core";
 // import Pusher from "pusher-js";
 import SalePriceModal from "@/components/Home/SalePriceModal.vue";
@@ -41,12 +41,12 @@ export default {
     CategoryList,
     Layout,
     ProductList,
-    SalePriceModal,
+    SalePriceModal,   
   },
   setup() {
     let token = useStore().state.auth.token;
     let store = useStore();
-    let isSearch = computed(() => store.state.order.isSearch);
+    let isSearch = computed(() => store.state.order.isSearch);  
     let products = ref([]);
     let currentCategory = ref("all");
     let isCategoryLoading = ref(false);
@@ -81,7 +81,7 @@ export default {
       let response = await axios.get(
         `${store.getters.getCustomerApi.allProductApi}?search_name=${keyword.value}&category_id=${currentCategory.value}`,
         { headers: { Authorization: `Bearer ${token}` } }
-      );
+      )
       let datas = response.data.data;
       products.value = datas;
       let mani = [];

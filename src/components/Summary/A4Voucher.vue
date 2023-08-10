@@ -88,7 +88,9 @@
               <p class="">{{ removeDecimal(orderProduct.sale_price) }}</p>
             </td>
             <td class="tableitem" align="right">
-              <p class="itemtext">{{ removeDecimal(orderProduct.total) }}</p>
+              <p class="itemtext">
+                {{ removeDecimal(orderProduct.total) }}
+                </p>
             </td>
           </tr>
         </table>
@@ -112,13 +114,14 @@
             </td>
             <td class="payment" align="right">
               <p class="mb-0 itemtext">
-                {{
+                {{ delivery_fee }}
+                <!-- {{
                   removeDecimal(
                     $store.state.order.refund_paid.delivery_fee == ""
                       ? 0
                       : $store.state.order.refund_paid.delivery_fee
                   )
-                }}
+                }} -->
               </p>
             </td>
           </tr>
@@ -127,7 +130,7 @@
             <td></td>
             <td class="Rate">
               <p class="mb-0">Tax</p>
-            </td>
+            </td> 
             <td class="payment" align="right">
               <p class="mb-0 itemtext">
                 {{
@@ -166,7 +169,8 @@
               style="border-top: 1px dotted black"
             >
               <p class="mb-0 itemtext">
-                {{
+                {{ total }}
+                <!-- {{
                   removeDecimal(
                     Number(total) +
                       Number(
@@ -175,7 +179,7 @@
                           : $store.state.order.refund_paid.delivery_fee
                       )
                   )
-                }}
+                }} -->
               </p>
             </td>
           </tr>

@@ -6,6 +6,14 @@
     },
   ]" @click="addToOrder" :id="product.barcode">
     <div class="card-body d-flex justify-content-center align-items-center position-relative p-0">
+      <div class="row product-text mb-5 rounded-3" style="margin-bottom: 119px !important;">
+        <div class="col-md-8 bg-body hidden"></div>
+        <div class="col-md-4">
+            <p class="fw-bold text-white text-center pd-small mb-0 pt-1 p-total">
+                {{ left_qty_product }} 
+            </p>
+        </div>
+      </div>
       <!-- product.photo -->
       <img :src="product.photo" class="aspect-1-1" alt="" @error="defaultImage" />
       <div class="product-text m-1 rounded-3">
@@ -49,6 +57,25 @@ export default {
         hold.order_products.find((hl) => hl.id == props.product.id)
       )
     );
+    let left_qty_product = computed(() => {
+      let add_qty =
+        store.state.order.orders.find((od) => od.id == props.product.id)?.qty ??
+        0;
+      if (currentHoldPro.value) {
+        let realProductQty = 0;
+        let eachHoldItemQtyCounts = holdOrders.value.map((hov) => {
+          return hov.order_products.find((hop) => hop.id == props.product.id)
+            .qty;
+        });
+        for (let i = 0; i < eachHoldItemQtyCounts.length; i++) {
+          realProductQty += eachHoldItemQtyCounts[i];
+        }
+        return props.product.left - realProductQty - add_qty;
+      } else {
+        return props.product.left - add_qty;
+      }
+    });
+
     let isIncludeProduct = computed(() =>
       store.state.order.holdOrders.filter(
         (hod) => hod?.order_products.includes(props.product.id) > 0
@@ -150,7 +177,7 @@ export default {
       //   }
       // });
     });
-    return { addToOrder, isPressing, removeDecimal, defaultImage };
+    return { addToOrder, isPressing, removeDecimal, defaultImage , left_qty_product };
   },
 };
 </script>

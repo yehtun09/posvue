@@ -12,5 +12,4 @@
 <script setup>
 import Navbar from "../Misc/Navbar.vue";
 </script>
-
 <style lang="scss" scoped></style>

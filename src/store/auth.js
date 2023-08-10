@@ -12,7 +12,7 @@ export default {
         loginApi: state.customerApi + "/api/login",
         categoryApi: state.customerApi + "/api/v1/product-categories",
         allProductApi: state.customerApi + "/api/v1/products",
-        productsByCategory: state.customerApi + "/api/v1/product-categories",
+        productsByCategory: state.customerApi + "/api/v1/product-categories", 
         orderCodeApi: state.customerApi + "/api/v1/order_code",
         orderApi: state.customerApi + "/api/v1/orders", //old
         storeOrderApi: state.customerApi + "/api/v1/order", //new
@@ -26,6 +26,8 @@ export default {
         adminExpenseApi: state.customerApi + "/api/v1/expenses",
         adminIncomeApi: state.customerApi + "/api/v1/incomes",
         shopInfoApi: state.customerApi + "/api/v1/shop-infos/1",
+        orderPaymentApi: state.customerApi  + "/api/v1/orderpayment",
+        printOrderApi : state.customerApi   + "/api/v1/orderPrint",
       };
     },
   },

@@ -13,7 +13,7 @@
             Bank
             <!-- <span class="badge badge-center rounded-pill bg-label-primary ms-3"><i class="bi bi-credit-card"></i></span> -->
           </button>
-        </div>
+        </div>  
         <div class="col-4">
           <button type="button" class="btn btn-label-danger w-100 p-2" role="tab" data-bs-toggle="tab" data-bs-target="#card-pay" aria-controls="card-pay" aria-selected="true">
             Pay
@@ -117,7 +117,7 @@ export default {
       });
 
     let paid = () => {
-      // store.dispatch("setStartPrint", true);
+      // store.dispatch("set", true);
       // return;
       let products = store.state.order.orders.map((order) => {
         return {
@@ -157,7 +157,7 @@ export default {
 
       confirm("Sure to checkout?", "", () => {
         // paying.value = true;
-
+        // console.log(confirm);
         if (cashOrCredit.value) {
           if (payload.name == "" || payload.phone == "" || payload.address == "") {
             infoError.value = true;
