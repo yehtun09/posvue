@@ -1,0 +1,10 @@
+.menu-sub {
+  display: none;
+  height: 0;
+  transition: all 1s;
+}
+
+.open .menu-sub {
+  display: block;
+  height: auto;
+}

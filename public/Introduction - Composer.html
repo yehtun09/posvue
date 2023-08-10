@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://getcomposer.org/doc/00-intro.md#globally -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>Introduction - Composer</title>
+        <meta name="description" content="A Dependency Manager for PHP">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <link rel="stylesheet" href="./Introduction - Composer_files/app.css">
+    <style type="text/css"></style><style type="text/css" data-asas-style="">body, div, a, p, span{ user-select: text !important; }p, h1, h2, h3, h4, h5, h6{ cursor: auto; user-select: text !important; }::selection{ background-color: #338FFF !important; color: #fff !important; }</style></head>
+
+    <body>
+        <div id="container">
+            <header>
+                                    <a href="https://getcomposer.org/" title="Go back to the homepage" aria-label="Go back to the homepage">🏠 Home</a><a class="active" href="https://getcomposer.org/doc/00-intro.md" title="Getting started with Composer" aria-label="Getting started with Composer">Getting Started</a><a class="" href="https://getcomposer.org/download/" title="Go the the Download page to see how to download Composer" aria-label="Go the the Download page to see how to download Composer">Download</a><a class="" href="https://getcomposer.org/doc/" title="View the Composer documentation" aria-label="View the Composer documentation">Documentation</a><a class="last" href="https://packagist.org/" title="Browse Composer packages on packagist.org (external link to Packagist.org)" aria-label="Browse Composer packages on packagist.org (external link to Packagist.org)">Browse
+                            Packages</a>                            </header>
+            <main role="main">
+                <div id="main">
+                        <div id="searchbar" class="clearfix">
+        <div id="docsearch"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><span class="DocSearch-Button-Key"><svg width="15" height="15" class="DocSearch-Control-Key-Icon"><path d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="square"></path></svg></span><span class="DocSearch-Button-Key">K</span></span></button></div>
+    </div>
+
+            <ul class="toc">
+                
+                                                            <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#dependency-management">Dependency management</a> 
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#system-requirements">System Requirements</a> 
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">Installation - Linux / Unix / macOS</a> 
+                                    <ul>
+                            
+                                                            <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable">Downloading the Composer Executable</a> 
+                                    <ul>
+                            
+                                                            <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#locally">Locally</a> 
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#globally">Globally</a> 
+                            </li>
+            
+                    </ul>
+                            </li>
+            
+                    </ul>
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#installation-windows">Installation - Windows</a> 
+                                    <ul>
+                            
+                                                            <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#using-the-installer">Using the Installer</a> 
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#manual-installation">Manual Installation</a> 
+                            </li>
+            
+                    </ul>
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#docker-image">Docker Image</a> 
+                            </li>
+                                <li>
+                <a href="https://getcomposer.org/doc/00-intro.md#using-composer">Using Composer</a> 
+                            </li>
+            
+        </ul>
+    
+    <h1 id="introduction">Introduction<a href="https://getcomposer.org/doc/00-intro.md#introduction" class="anchor">#</a></h1>
+<p>Composer is a tool for dependency management in PHP. It allows you to declare
+the libraries your project depends on and it will manage (install/update) them
+for you.</p>
+<h2 id="dependency-management">Dependency management<a href="https://getcomposer.org/doc/00-intro.md#dependency-management" class="anchor">#</a></h2>
+<p>Composer is <strong>not</strong> a package manager in the same sense as Yum or Apt are. Yes,
+it deals with "packages" or libraries, but it manages them on a per-project
+basis, installing them in a directory (e.g. <code>vendor</code>) inside your project. By
+default, it does not install anything globally. Thus, it is a dependency
+manager. It does however support a "global" project for convenience via the
+<a href="https://getcomposer.org/doc/03-cli.md#global">global</a> command.</p>
+<p>This idea is not new and Composer is strongly inspired by node's
+<a href="https://www.npmjs.com/">npm</a> and ruby's <a href="https://bundler.io/">bundler</a>.</p>
+<p>Suppose:</p>
+<ol>
+<li>You have a project that depends on a number of libraries.</li>
+<li>Some of those libraries depend on other libraries.</li>
+</ol>
+<p>Composer:</p>
+<ol>
+<li>Enables you to declare the libraries you depend on.</li>
+<li>Finds out which versions of which packages can and need to be installed, and
+installs them (meaning it downloads them into your project).</li>
+<li>You can update all your dependencies in one command.</li>
+</ol>
+<p>See the <a href="https://getcomposer.org/doc/01-basic-usage.md">Basic usage</a> chapter for more details on declaring
+dependencies.</p>
+<h2 id="system-requirements">System Requirements<a href="https://getcomposer.org/doc/00-intro.md#system-requirements" class="anchor">#</a></h2>
+<p>Composer in its latest version requires PHP 7.2.5 to run. A long-term-support
+version (2.2.x) still offers support for PHP 5.3.2+ in case you are stuck with
+a legacy PHP version. A few sensitive php settings and compile flags are also
+required, but when using the installer you will be warned about any
+incompatibilities.</p>
+<p>To install packages from sources instead of plain zip archives, you will need
+git, svn, fossil or hg depending on how the package is version-controlled.</p>
+<p>Composer is multi-platform and we strive to make it run equally well on Windows,
+Linux and macOS.</p>
+<h2 id="installation-linux-unix-macos">Installation - Linux / Unix / macOS<a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos" class="anchor">#</a></h2>
+<h3 id="downloading-the-composer-executable">Downloading the Composer Executable<a href="https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable" class="anchor">#</a></h3>
+<p>Composer offers a convenient installer that you can execute directly from the
+command line. Feel free to <a href="https://getcomposer.org/installer">download this file</a>
+or review it on <a href="https://github.com/composer/getcomposer.org/blob/main/web/installer">GitHub</a>
+if you wish to know more about the inner workings of the installer. The source
+is plain PHP.</p>
+<p>There are, in short, two ways to install Composer. Locally as part of your
+project, or globally as a system wide executable.</p>
+<h4 id="locally">Locally<a href="https://getcomposer.org/doc/00-intro.md#locally" class="anchor">#</a></h4>
+<p>To install Composer locally, run the installer in your project directory. See
+<a href="https://getcomposer.org/download/">the Download page</a> for instructions.</p>
+<p>The installer will check a few PHP settings and then download <code>composer.phar</code>
+to your working directory. This file is the Composer binary. It is a PHAR
+(PHP archive), which is an archive format for PHP which can be run on
+the command line, amongst other things.</p>
+<p>Now run <code>php composer.phar</code> in order to run Composer.</p>
+<p>You can install Composer to a specific directory by using the <code>--install-dir</code>
+option and additionally (re)name it as well using the <code>--filename</code> option. When
+running the installer when following
+<a href="https://getcomposer.org/download/">the Download page instructions</a> add the
+following parameters:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">php composer-setup.php --install-dir=bin --filename=composer</code></pre>
+<p>Now run <code>php bin/composer</code> in order to run Composer.</p>
+<h4 id="globally">Globally<a href="https://getcomposer.org/doc/00-intro.md#globally" class="anchor">#</a></h4>
+<p>You can place the Composer PHAR anywhere you wish. If you put it in a directory
+that is part of your <code>PATH</code>, you can access it globally. On Unix systems you
+can even make it executable and invoke it without directly using the <code>php</code>
+interpreter.</p>
+<p>After running the installer following <a href="https://getcomposer.org/download/">the Download page instructions</a>
+you can run this to move composer.phar to a directory that is in your path:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">mv composer.phar /usr/local/bin/composer</code></pre>
+<p>If you like to install it only for your user and avoid requiring root permissions,
+you can use <code>~/.local/bin</code> instead which is available by default on some
+Linux distributions.</p>
+<blockquote>
+<p><strong>Note:</strong> If the above fails due to permissions, you may need to run it again
+with <code>sudo</code>.</p>
+<p><strong>Note:</strong> On some versions of macOS the <code>/usr</code> directory does not exist by
+default. If you receive the error "/usr/local/bin/composer: No such file or
+directory" then you must create the directory manually before proceeding:
+<code>mkdir -p /usr/local/bin</code>.</p>
+<p><strong>Note:</strong> For information on changing your PATH, please read the
+<a href="https://en.wikipedia.org/wiki/PATH_(variable)">Wikipedia article</a> and/or use
+your search engine of choice.</p>
+</blockquote>
+<p>Now run <code>composer</code> in order to run Composer instead of <code>php composer.phar</code>.</p>
+<h2 id="installation-windows">Installation - Windows<a href="https://getcomposer.org/doc/00-intro.md#installation-windows" class="anchor">#</a></h2>
+<h3 id="using-the-installer">Using the Installer<a href="https://getcomposer.org/doc/00-intro.md#using-the-installer" class="anchor">#</a></h3>
+<p>This is the easiest way to get Composer set up on your machine.</p>
+<p>Download and run
+<a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>. It will
+install the latest Composer version and set up your PATH so that you can
+call <code>composer</code> from any directory in your command line.</p>
+<blockquote>
+<p><strong>Note:</strong> Close your current terminal. Test usage with a new terminal: This is
+important since the PATH only gets loaded when the terminal starts.</p>
+</blockquote>
+<h3 id="manual-installation">Manual Installation<a href="https://getcomposer.org/doc/00-intro.md#manual-installation" class="anchor">#</a></h3>
+<p>Change to a directory on your <code>PATH</code> and run the installer following
+<a href="https://getcomposer.org/download/">the Download page instructions</a>
+to download <code>composer.phar</code>.</p>
+<p>Create a new <code>composer.bat</code> file alongside <code>composer.phar</code>:</p>
+<p>Using cmd.exe:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">C:\bin&gt; echo @php "%~dp0composer.phar" %*&gt;composer.bat</code></pre>
+<p>Using PowerShell:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">PS C:\bin&gt; Set-Content composer.bat '@php "%~dp0composer.phar" %*'</code></pre>
+<p>Add the directory to your PATH environment variable if it isn't already.
+For information on changing your PATH variable, please see
+<a href="https://www.computerhope.com/issues/ch000549.htm">this article</a> and/or
+use your search engine of choice.</p>
+<p>Close your current terminal. Test usage with a new terminal:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">C:\Users\username&gt;composer -V</code></pre>
+<pre class="language-text" tabindex="0"><code class="language-text">Composer version 2.4.0 2022-08-16 16:10:48</code></pre>
+<h2 id="docker-image">Docker Image<a href="https://getcomposer.org/doc/00-intro.md#docker-image" class="anchor">#</a></h2>
+<p>Composer is published as Docker container in a few places, see the list in the <a href="https://github.com/composer/docker">composer/docker README</a>.</p>
+<p>Example usage:</p>
+<pre class="language-bashell" tabindex="0"><code class="language-bashell">docker pull composer/composer
+docker run --rm -it -v "$(pwd):/app" composer/composer install</code></pre>
+<p>To add Composer to an existing <strong>Dockerfile</strong> you can simply copy binary file from pre-built, low-size images:</p>
+<pre class="language-dockerfile" tabindex="0"><code class="language-dockerfile"># Latest release
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+
+# Specific release
+COPY --from=composer/composer:2-bin /composer /usr/bin/composer</code></pre>
+<p>Read the <a href="https://hub.docker.com/r/composer/composer">image description</a> for further usage information.</p>
+<p><strong>Note:</strong> Docker specific issues should be filed <a href="https://github.com/composer/docker/issues">on the composer/docker repository</a>.</p>
+<p><strong>Note:</strong> You may also use <code>composer</code> instead of <code>composer/composer</code> as image name above. It is shorter and is a Docker official image but is not published directly by us and thus usually receives new releases with a delay of a few days. <strong>Important</strong>: short-aliased images don't have binary-only equivalents, so for <code>COPY --from</code> approach it's better to use <code>composer/composer</code> ones.</p>
+<h2 id="using-composer">Using Composer<a href="https://getcomposer.org/doc/00-intro.md#using-composer" class="anchor">#</a></h2>
+<p>Now that you've installed Composer, you are ready to use it! Head on over to the
+next chapter for a short demonstration.</p>
+<p class="prev-next"><a href="https://getcomposer.org/doc/01-basic-usage.md">Basic usage</a> →</p>
+
+    <p class="fork-and-edit">
+        Found a typo? Something is wrong in this documentation?
+        <a href="https://github.com/composer/composer/edit/main/doc/00-intro.md" title="Go to the docs to fork and propose updates (external link)" aria-label="Go to the docs to fork and propose updates (external link)">Fork and edit</a> it!
+    </p>
+                </div>
+            </main>
+            <footer>
+                                
+                <p class="license">
+                    Composer and all content on this site are released under the <a href="https://github.com/composer/composer/blob/main/LICENSE" title="View the MIT license (external link to GitHub.com)" aria-label="View the MIT license (external link to GitHub.com)">MIT license</a>.
+                </p>
+            </footer>
+        </div>
+
+        <script src="./Introduction - Composer_files/app.js.download"></script>
+    
+
+</body></html>
